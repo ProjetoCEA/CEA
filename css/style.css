@@ -868,3 +868,102 @@ footer {
         transform: translateX(-50%);
     }
 }
+
+/* =========================================
+   NOTÍCIAS — REFINADO
+   ========================================= */
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+/* CARD */
+.noticia-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+/* HOVER MAIS SUAVE */
+.noticia-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-pop);
+}
+
+/* IMAGEM */
+.noticia-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* CONTEÚDO */
+.noticia-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* DATA */
+.noticia-data {
+    font-size: 0.75rem;
+    color: var(--roxo-claro);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+/* TÍTULO */
+.noticia-info h3 {
+    color: var(--roxo-escuro);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+/* TEXTO — MELHOR LEITURA */
+.noticia-info p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+
+    /* 👇 ISSO É O SEGREDO */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* limita linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    margin-bottom: 14px;
+}
+
+/* LINK */
+.link-arrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--roxo-escuro);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.link-arrow:hover {
+    color: var(--laranja);
+    transform: translateX(4px);
+}
+
+/* RESPONSIVO */
+@media (min-width: 768px) {
+    .noticias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .noticias-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
