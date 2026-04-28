@@ -1,9 +1,3 @@
-# Política de Segurança
-
-Se você encontrar alguma vulnerabilidade, entre em contato com a equipe do projeto.
-
-Este projeto não possui infraestrutura crítica no momento.
-
 ## Supported Versions
 
 Use this section to tell people about which versions of your project are
