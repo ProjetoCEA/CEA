@@ -790,3 +790,93 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* =========================================
+   CARROSSEL SETORES
+   ========================================= */
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+/* Cards */
+.setor-card {
+    min-width: 260px;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    border: 2px solid transparent;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.setor-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--roxo-claro);
+    box-shadow: var(--shadow-pop);
+}
+
+.setor-card h3 {
+    color: var(--roxo-escuro);
+    margin-bottom: 6px;
+}
+
+.setor-card span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--roxo-claro);
+    margin-bottom: 10px;
+}
+
+.setor-card p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+}
+
+/* Botões */
+.carousel-btn {
+    background: var(--roxo-escuro);
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.carousel-btn:hover {
+    background: var(--laranja);
+}
+
+.prev {
+    left: -10px;
+}
+
+.next {
+    right: -10px;
+}
+
+/* RESPONSIVO */
+@media (min-width: 768px) {
+    .setor-card {
+        min-width: 300px;
+    }
+}
