@@ -818,14 +818,22 @@ footer {
     padding: 22px;
     border-radius: var(--radius-lg);
 
-    background: rgba(255, 255, 255, 0.15);
+    /* vidro adaptado para fundo claro */
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(67,29,80,0.15);
     box-shadow: var(--shadow-card);
 
     transition: var(--transition);
+
+    backdrop-filter: blur(12px);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.4)
+    );
 }
 
 .setor-glass:hover {
@@ -835,20 +843,20 @@ footer {
 }
 
 .setor-glass h3 {
-    color: white;
+    color: var(--roxo-escuro);
     margin-bottom: 6px;
 }
 
 .setor-glass span {
     display: block;
     font-size: 0.85rem;
-    color: var(--amarelo);
+    color: var(--roxo-claro);
     margin-bottom: 10px;
 }
 
 .setor-glass p {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
+    color: var(--text-mid);
 }
 
 /* ANIMAÇÃO INFINITA */
