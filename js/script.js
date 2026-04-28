@@ -58,3 +58,30 @@ if (header) {
             : '0 2px 20px rgba(0,0,0,.25)';
     });
 }
+
+// CARROSSEL SETORES
+const track = document.getElementById("carouselTrack");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+let index = 0;
+
+function updateCarousel() {
+    const cardWidth = track.querySelector(".setor-card").offsetWidth + 20;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+    const totalCards = track.children.length;
+    if (index < totalCards - 1) {
+        index++;
+        updateCarousel();
+    }
+});
+
+prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+        index--;
+        updateCarousel();
+    }
+});
