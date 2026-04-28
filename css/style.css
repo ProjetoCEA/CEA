@@ -880,3 +880,73 @@ footer {
         min-width: 300px;
     }
 }
+
+/* =========================================
+   SETORES - GLASS LOOP
+   ========================================= */
+
+.setores-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.setores-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLoop 35s linear infinite;
+}
+
+/* PAUSA AO PASSAR MOUSE */
+.setores-slider:hover .setores-track {
+    animation-play-state: paused;
+}
+
+/* CARD GLASS */
+.setor-glass {
+    min-width: 260px;
+    padding: 22px;
+    border-radius: var(--radius-lg);
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: var(--shadow-card);
+
+    transition: var(--transition);
+}
+
+.setor-glass:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-pop);
+    border-color: var(--roxo-claro);
+}
+
+.setor-glass h3 {
+    color: white;
+    margin-bottom: 6px;
+}
+
+.setor-glass span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--amarelo);
+    margin-bottom: 10px;
+}
+
+.setor-glass p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+}
+
+/* ANIMAÇÃO INFINITA */
+@keyframes scrollLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
