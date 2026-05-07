@@ -973,11 +973,19 @@ footer {
 }
 
 /* --- LOGO ICON NO HEADER --- */
-.logo { flex-direction: row; align-items: center; gap: 10px; }
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
 .logo-icon {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 /* --- RESPONSIVO --- */
