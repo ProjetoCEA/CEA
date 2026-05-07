@@ -722,6 +722,7 @@ footer {
    MOBILE NAV (overlay)
    ========================================= */
 @media (max-width: 768px) {
+    .macote-img { width: 220px; }
     .menu-toggle { display: flex; }
 
     .nav-links {
