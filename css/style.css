@@ -954,6 +954,27 @@ footer {
     transform: translateX(4px);
 }
 
+/* --- MASCOTE HERO --- */
+.mascote-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.mascote-img {
+  width: 340px;
+  max-width: 100%;
+  filter: drop-shadow(0 12px 32px rgba(67,29,80,.28));
+  animation: mascote-float 3.5s ease-in-out infinite;
+}
+
+@keyframes mascote-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
 /* RESPONSIVO */
 @media (min-width: 768px) {
     .noticias-grid {
