@@ -683,28 +683,54 @@ footer {
    MOBILE NAV (overlay)
    ========================================= */
 @media (max-width: 768px) {
-    .macote-img { width: 220px; }
-    .menu-toggle { display: flex; }
+
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 120;
+    }
 
     .nav-links {
         position: fixed;
-        inset: 0;
-        background: var(--roxo-escuro);
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+
+        background: rgba(67,29,80,.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 18px;
+
         transform: translateX(100%);
         transition: transform .35s ease;
-        z-index: 99;
+
+        z-index: 110;
     }
-    .nav-links.open { transform: translateX(0); }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
 
     .nav-links a {
-        font-size: 1.2rem;
-        padding: 12px 24px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 14px 24px;
     }
-    .nav-cta { font-size: 1.2rem !important; }
+
+    .nav-cta {
+        margin-top: 14px;
+    }
+
+    .logo {
+        position: relative;
+        z-index: 120;
+    }
 }
 
 /* CONTEÚDOS PAGE */
