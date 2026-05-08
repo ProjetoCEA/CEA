@@ -50,6 +50,8 @@ document.querySelectorAll('.card, .acao-card, .stat, .strip-text, .content-block
     });
 
 // ---- Sticky header shadow on scroll ----
+document.body.style.overflow =
+    navLinks.classList.contains('open') ? 'hidden' : '';
 const header = document.getElementById('header');
 if (header) {
     window.addEventListener('scroll', () => {
