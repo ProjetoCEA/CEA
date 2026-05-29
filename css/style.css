@@ -1127,3 +1127,80 @@ footer {
         text-align: center;
     }
 }
+
+/* =========================================
+   ÁREAS DO CURSO
+========================================= */
+
+.areas-section {
+    padding: 80px 20px;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.area-card {
+    background: rgba(255,255,255,.6);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(67,29,80,.08);
+
+    border-radius: var(--radius-lg);
+
+    padding: 32px;
+
+    box-shadow: var(--shadow-soft);
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.area-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-pop);
+}
+
+.area-icon {
+    font-size: 2.8rem;
+
+    margin-bottom: 18px;
+}
+
+.area-card h2 {
+    margin-bottom: 14px;
+
+    color: var(--roxo-escuro);
+
+    font-size: 1.7rem;
+}
+
+.area-card p {
+    color: var(--text-mid);
+
+    margin-bottom: 20px;
+}
+
+.area-card ul {
+    margin-bottom: 28px;
+
+    padding-left: 18px;
+}
+
+.area-card li {
+    margin-bottom: 8px;
+
+    color: var(--text-dark);
+}
+
+.area-card .btn {
+    width: fit-content;
+}
