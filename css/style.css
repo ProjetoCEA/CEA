@@ -339,8 +339,8 @@ h1, h2, h3 {
 
 .strip-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
 
 .stat {
@@ -604,6 +604,7 @@ footer {
     .cards-grid   { grid-template-columns: repeat(2, 1fr); }
     .acoes-grid   { grid-template-columns: repeat(2, 1fr); }
     .strip-grid   { grid-template-columns: 1fr 1fr; align-items: center; }
+    .strip-stats  { grid-template-columns: repeat(3, 1fr); }
 
     .cta-box {
         flex-direction: row;
