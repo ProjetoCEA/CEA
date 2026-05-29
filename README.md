@@ -6,7 +6,7 @@ Site oficial do projeto de extensão "Conhecendo a Engenharia de Alimentos" da U
 Divulgar conteúdos, ações e oportunidades relacionadas à Engenharia de Alimentos.
 
 ## 🌐 Acesse o site
-(Colocar o link quando publicar)
+https://projetocea.github.io/CEA/
 
 ## 🧱 Estrutura do projeto
 - index.html → Página inicial
@@ -16,7 +16,7 @@ Divulgar conteúdos, ações e oportunidades relacionadas à Engenharia de Alime
 - /pages → Páginas internas
 
 ## 👥 Equipe
-Projeto desenvolvido por acadêmicos da UFMS.
+Projeto desenvolvido por acadêmicos do curso de Engenharia de Alimentos da UFMS.
 
 ## 🚀 Como contribuir
 Leia o arquivo CONTRIBUTING.md
