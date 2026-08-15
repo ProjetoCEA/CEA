@@ -965,6 +965,107 @@ footer {
     transform: translateX(4px);
 }
 
+/* =========================================
+   NOTÍCIAS — LISTA (bloco por notícia)
+   ========================================= */
+
+.noticias-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    counter-reset: noticia-count;
+}
+
+/* CADA NOTÍCIA É UM BLOCO PRÓPRIO */
+.noticia-item {
+    position: relative;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 28px 32px 28px 36px;
+    box-shadow: var(--shadow-card);
+    border-left: 5px solid var(--laranja);
+    transition: var(--transition);
+    counter-increment: noticia-count;
+}
+
+/* NÚMERO DECORATIVO */
+.noticia-item::before {
+    content: counter(noticia-count, decimal-leading-zero);
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--amarelo);
+    opacity: .8;
+    line-height: 1;
+}
+
+.noticia-item:hover {
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: var(--shadow-pop);
+    border-left-color: var(--roxo-escuro);
+}
+
+/* TAG DE DATA */
+.noticia-item .noticia-data {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--laranja-dark);
+    background: rgba(237,168,45,.14);
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 12px;
+}
+
+/* TÍTULO */
+.noticia-item h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    padding-right: 50px; /* espaço pro número */
+}
+
+.noticia-item h3 a {
+    color: var(--roxo-escuro);
+    transition: var(--transition);
+}
+.noticia-item h3 a:hover {
+    color: var(--laranja-dark);
+}
+
+/* TEXTO */
+.noticia-item p {
+    font-size: .92rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+}
+
+/* RESPONSIVO — mobile */
+@media (max-width: 640px) {
+    .noticia-item {
+        padding: 22px 20px 22px 22px;
+        border-left-width: 4px;
+    }
+    .noticia-item::before {
+        top: 18px;
+        right: 18px;
+        font-size: 1.2rem;
+    }
+    .noticia-item h3 {
+        font-size: 1.05rem;
+        padding-right: 40px;
+    }
+    .noticia-item:hover {
+        transform: translateY(-2px);
+    }
+}
+
 /* --- MASCOTE HERO --- */
 .mascote-wrap {
   display: flex;
