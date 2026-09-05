@@ -113,31 +113,13 @@
             letter-spacing: .04em;
         }
 
-        /* ── TAGS DE ALÉRGENO ── */
-        .tag {
-            display: inline-block;
-            font-style: normal;
-            font-size: .68rem;
-            font-weight: 700;
-            letter-spacing: .01em;
-            padding: 3px 11px;
-            border-radius: var(--radius-pill);
-            white-space: nowrap;
-        }
-        .tag-alerg { background: rgba(237,168,45,.16); color: var(--laranja-dark); }
-        .tag-livre { background: rgba(74,124,89,.14);  color: #3f7a52; }
-        .tag-vegano { background: rgba(67,29,80,.10);  color: var(--roxo-escuro); }
-
-        .tag-legenda {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px;
-            margin-bottom: 36px;
+        /* ── INFORMAÇÃO DE ALÉRGENO (texto discreto) ── */
+        .mc-alergeno {
+            font-style: italic;
             font-size: .8rem;
             color: var(--text-mid);
+            opacity: .8;
         }
-        .tag-legenda span { display: flex; align-items: center; gap: 8px; }
 
         /* ── CARDÁPIO (acordeão por categoria) ── */
         .cardapio-acordeao {
@@ -193,10 +175,8 @@
         }
         .mc-lista li {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px 16px;
+            flex-direction: column;
+            gap: 2px;
             padding: 12px 0;
             border-top: 1px solid rgba(67,29,80,.08);
         }
@@ -204,11 +184,6 @@
             font-size: .93rem;
             color: var(--text-dark);
             font-weight: 500;
-        }
-        .mc-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
         }
 
         @media (max-width: 480px) {
@@ -329,9 +304,9 @@
 
         <ul class="nav-links" id="navLinks">
             <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="coffee-break.html" class="nav-cta">Coffee-break</a></li>
             <li><a href="conteudos.html">Conteúdos</a></li>
             <li><a href="noticias.html">Notícias</a></li>
-            <li><a href="coffee-break.html">Coffee-break</a></li>
         </ul>
     </nav>
 </header>
@@ -369,104 +344,98 @@
                 <p class="sh-desc">Mais de 40 produções artesanais, com ingredientes nativos do Cerrado e do Pantanal. Clique em cada categoria para ver as opções.</p>
             </div>
 
-            <div class="tag-legenda">
-                <span><i class="tag tag-alerg">Glúten</i> contém o alérgeno</span>
-                <span><i class="tag tag-livre">Sem ovos, glúten e lácteos</i> livre dos 3 principais alérgenos</span>
-                <span><i class="tag tag-vegano">Vegano</i> opção vegana</span>
-            </div>
-
             <div class="cardapio-acordeao">
 
                 <details class="menu-cat" open>
                     <summary>Bolos <span class="mc-count">8 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Bolo de chocolate e castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Bolo de laranja e especiaria de guavira</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Bolo de jenipapo</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Bolo de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Bolo vegano de castanha de baru</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Bolo vegano de laranja e especiaria de guavira</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Bolo vegano de jenipapo</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Amanteigado de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Bolo de chocolate e castanha de baru</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Bolo de laranja e especiaria de guavira</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Bolo de jenipapo</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Bolo de bocaiuva</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Bolo vegano de castanha de baru</span><span class="mc-alergeno">Vegano · contém glúten</span></li>
+                        <li><span class="mc-nome">Bolo vegano de laranja e especiaria de guavira</span><span class="mc-alergeno">Vegano · contém glúten</span></li>
+                        <li><span class="mc-nome">Bolo vegano de jenipapo</span><span class="mc-alergeno">Vegano · contém glúten</span></li>
+                        <li><span class="mc-nome">Amanteigado de bocaiuva</span><span class="mc-alergeno">Contém glúten</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Cookies e biscoitos <span class="mc-count">5 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Cookies de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Sequilhos de castanha de baru</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
-                        <li><span class="mc-nome">Sequilhos de jenipapo</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
-                        <li><span class="mc-nome">Cookies de jatobá e chocolate ao leite</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Cookies de jatobá e chocolate branco</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Cookies de pequi</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Sequilhos de castanha de baru</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Sequilhos de jenipapo</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Cookies de jatobá e chocolate ao leite</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Cookies de jatobá e chocolate branco</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Salgadinhos assados <span class="mc-count">4 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Palitinho de orégano</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Palitinho de alecrim</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Palitinho de salsa</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Palitinho de acuri</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Palitinho de orégano</span><span class="mc-alergeno">Contém glúten</span></li>
+                        <li><span class="mc-nome">Palitinho de alecrim</span><span class="mc-alergeno">Contém glúten</span></li>
+                        <li><span class="mc-nome">Palitinho de salsa</span><span class="mc-alergeno">Contém glúten</span></li>
+                        <li><span class="mc-nome">Palitinho de acuri</span><span class="mc-alergeno">Contém glúten</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Pães <span class="mc-count">12 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Pão de castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de acuri</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de jenipapo</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de castanha de baru</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de acuri</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de pequi</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de bocaiuva</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de jenipapo</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
                         <!-- ATENÇÃO: no cardápio original da UNITAL, este item "(sem lácteos)" aparece com a mesma observação do item acima ("contém lácteos"). Confirmar com o fornecedor antes de publicar. -->
-                        <li><span class="mc-nome">Pão de castanha de baru (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de acuri (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Pão de pequi (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Pão de bocaiuva (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Pão de jenipapo (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
-                        <li><span class="mc-nome">Pão de queijo de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Pão de queijo de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de castanha de baru (sem lácteos)</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de acuri (sem lácteos)</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Pão de pequi (sem lácteos)</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Pão de bocaiuva (sem lácteos)</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Pão de jenipapo (sem lácteos)</span><span class="mc-alergeno">Contém ovos e glúten</span></li>
+                        <li><span class="mc-nome">Pão de queijo de pequi</span><span class="mc-alergeno">Contém ovos e lácteos</span></li>
+                        <li><span class="mc-nome">Pão de queijo de bocaiuva</span><span class="mc-alergeno">Contém ovos e lácteos</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Patês, geleias e conservas <span class="mc-count">5 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Caponata de berinjela e castanha de baru</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
-                        <li><span class="mc-nome">Patê de ricota e castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Geleia de guavira</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
-                        <li><span class="mc-nome">Geleia de hibisco</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
-                        <li><span class="mc-nome">Geleia de tamarindo</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Caponata de berinjela e castanha de baru</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Patê de ricota e castanha de baru</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Geleia de guavira</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Geleia de hibisco</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Geleia de tamarindo</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Tortas salgadas <span class="mc-count">2 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Torta de jatobá e legumes</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Torta de jatobá e sardinha</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Torta de jatobá e legumes</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
+                        <li><span class="mc-nome">Torta de jatobá e sardinha</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Doces finos <span class="mc-count">2 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Brigadeiro de castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Beijinho de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Brigadeiro de castanha de baru</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Beijinho de bocaiuva</span><span class="mc-alergeno">Contém lácteos</span></li>
                     </ul>
                 </details>
 
                 <details class="menu-cat">
                     <summary>Gelados e sorvetes <span class="mc-count">6 opções</span></summary>
                     <ul class="mc-lista">
-                        <li><span class="mc-nome">Frozen de guavira</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Frozen de jenipapo azul</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Sorvete de café</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Sorvete de maracujá</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Sorvete de chocolate</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
-                        <li><span class="mc-nome">Sorbet de frutas vermelhas</span><span class="mc-tags"><span class="tag tag-livre">Sem lácteos</span></span></li>
+                        <li><span class="mc-nome">Frozen de guavira</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Frozen de jenipapo azul</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Sorvete de café</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Sorvete de maracujá</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Sorvete de chocolate</span><span class="mc-alergeno">Contém lácteos</span></li>
+                        <li><span class="mc-nome">Sorbet de frutas vermelhas</span><span class="mc-alergeno">Sem lácteos</span></li>
                     </ul>
                 </details>
 
@@ -532,7 +501,7 @@
             <div style="text-align:center;">
                 <p class="cta-preco">Os valores variam de acordo com o cardápio escolhido e o número de convidados. Fale com a gente para um orçamento personalizado.</p>
                 <!-- Substitua "5567000000000" pelo número real do WhatsApp do CEA (com DDI 55 + DDD + número, sem espaços ou símbolos) -->
-                <a href="https://wa.me/5567000000000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20pre%C3%A7os%20e%20disponibilidade%20do%20coffee-break%20do%20CEA."
+                <a href="https://wa.me/5567981855121?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20pre%C3%A7os%20e%20disponibilidade%20do%20coffee-break%20do%20CEA."
                    class="btn btn-primary btn-lg btn-whatsapp"
                    target="_blank" rel="noopener">
                     Falar no WhatsApp e consultar preços
@@ -567,9 +536,9 @@
             <div class="footer-column">
                 <h4>Navegação</h4>
                 <a href="sobre.html">Sobre</a>
+                <a href="coffee-break.html">Coffee-break</a>
                 <a href="conteudos.html">Conteúdos</a>
                 <a href="noticias.html">Notícias</a>
-                <a href="coffee-break.html">Coffee-break</a>
             </div>
 
             <div class="footer-column">
