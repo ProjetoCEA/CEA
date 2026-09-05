@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <meta name="theme-color" content="#431d50">
+    <title>Coffee-break – Projeto CEA UFMS</title>
+    <meta name="description" content="Contrate o serviço de coffee-break do Projeto CEA: produções artesanais feitas por estudantes de Engenharia de Alimentos da UFMS, com ingredientes regionais do Cerrado e Pantanal.">
+    <meta property="og:title" content="Coffee-break – Projeto CEA UFMS">
+    <meta property="og:description" content="Contrate o serviço de coffee-break do Projeto CEA: produções artesanais feitas por estudantes de Engenharia de Alimentos da UFMS.">
+    <meta property="og:image" content="https://projetocea.github.io/CEA/assets/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://projetocea.github.io/CEA/pages/coffee-break.html">
+
+    <!-- Fonte não-bloqueante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FK88FPD8LT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FK88FPD8LT');
+    </script>
+
+    <style>
+        /* ── SEÇÕES DE APOIO ── */
+        .s-bege { padding: 80px 0; background: var(--bege); }
+        .s-roxo { padding: 80px 0; background: var(--roxo-escuro); }
+
+        .sh-bege { text-align: center; margin-bottom: 48px; }
+        .sh-bege .stag {
+            display: block;
+            color: var(--roxo-escuro);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: .6;
+        }
+        .sh-bege h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            color: var(--roxo-escuro);
+            margin: 0;
+        }
+        .sh-bege p.sh-desc {
+            max-width: 560px;
+            margin: 14px auto 0;
+            color: var(--text-mid);
+            font-size: 1rem;
+        }
+
+        .sh-roxo { text-align: center; margin-bottom: 48px; }
+        .sh-roxo .stag {
+            display: block;
+            color: var(--amarelo);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: .85;
+        }
+        .sh-roxo h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            color: white;
+            margin: 0;
+        }
+        .sh-roxo p.sh-desc {
+            max-width: 560px;
+            margin: 14px auto 0;
+            color: rgba(255,255,255,.7);
+            font-size: 1rem;
+        }
+
+        /* ── PLACEHOLDER DE IMAGEM (reservado p/ quando houver fotos) ── */
+        .img-placeholder {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: var(--radius-md);
+            border: 2px dashed rgba(67,29,80,.25);
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(67,29,80,.04),
+                rgba(67,29,80,.04) 10px,
+                rgba(67,29,80,.08) 10px,
+                rgba(67,29,80,.08) 20px
+            );
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: var(--text-mid);
+            text-align: center;
+            padding: 20px;
+        }
+        .img-placeholder .ph-icon { font-size: 2rem; }
+        .img-placeholder span {
+            font-size: .78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        /* ── TAGS DE ALÉRGENO ── */
+        .tag {
+            display: inline-block;
+            font-style: normal;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .01em;
+            padding: 3px 11px;
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+        }
+        .tag-alerg { background: rgba(237,168,45,.16); color: var(--laranja-dark); }
+        .tag-livre { background: rgba(74,124,89,.14);  color: #3f7a52; }
+        .tag-vegano { background: rgba(67,29,80,.10);  color: var(--roxo-escuro); }
+
+        .tag-legenda {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 36px;
+            font-size: .8rem;
+            color: var(--text-mid);
+        }
+        .tag-legenda span { display: flex; align-items: center; gap: 8px; }
+
+        /* ── CARDÁPIO (acordeão por categoria) ── */
+        .cardapio-acordeao {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .menu-cat {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+        }
+
+        .menu-cat > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 26px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--roxo-escuro);
+            transition: var(--transition);
+        }
+        .menu-cat > summary::-webkit-details-marker { display: none; }
+        .menu-cat > summary::after {
+            content: '＋';
+            margin-left: auto;
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--laranja);
+            transition: var(--transition);
+        }
+        .menu-cat[open] > summary::after { content: '－'; }
+        .menu-cat > summary:hover { background: rgba(67,29,80,.03); }
+
+        .mc-count {
+            font-family: var(--font-body);
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--text-mid);
+        }
+
+        .mc-lista {
+            list-style: none;
+            padding: 0 26px 22px;
+        }
+        .mc-lista li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px 16px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(67,29,80,.08);
+        }
+        .mc-nome {
+            font-size: .93rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        .mc-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .menu-cat > summary { padding: 16px 18px; font-size: 1.02rem; }
+            .mc-lista { padding: 0 18px 18px; }
+        }
+
+        /* ── DIFERENCIAIS ── */
+        .dif-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 640px)  { .dif-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1100px) { .dif-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .dif-card {
+            border-radius: var(--radius-lg);
+            border: 1.5px solid rgba(255,255,255,.1);
+            padding: 30px 24px;
+            background: rgba(255,255,255,.05);
+            transition: var(--transition);
+        }
+        .dif-card:hover {
+            background: rgba(255,255,255,.09);
+            border-color: var(--roxo-claro);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-pop);
+        }
+        .dif-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .dif-card p {
+            font-family: var(--font-body);
+            font-size: .87rem;
+            color: rgba(255,255,255,.62);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── COMO CONTRATAR ── */
+        .cta-preco {
+            max-width: 480px;
+            margin: 0 auto 24px;
+            font-size: .9rem;
+            color: rgba(255,255,255,.7);
+        }
+        .passos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+        @media (min-width: 768px) { .passos-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .passo-card { text-align: center; padding: 0 12px; }
+        .passo-num {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--laranja);
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .passo-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .passo-card p {
+            font-size: .88rem;
+            color: rgba(255,255,255,.62);
+            line-height: 1.6;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .aviso-placeholder {
+            text-align: center;
+            font-size: .78rem;
+            color: rgba(255,255,255,.45);
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <nav class="nav-container">
+        <a href="../index.html" class="logo">
+            <img src="../assets/logo.png" alt="Logo CEA" class="logo-icon">
+            <div>
+                <span class="logo-cea">CEA</span>
+                <span class="logo-sub">UFMS</span>
+            </div>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="conteudos.html">Conteúdos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="coffee-break.html">Coffee-break</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <h1>Coffee-break do CEA</h1>
+    <p>Produções artesanais feitas por estudantes de Engenharia de Alimentos, com ingredientes regionais e todo o cuidado técnico de quem estuda alimentos de verdade.</p>
+</section>
+
+<main>
+
+    <!-- ── O QUE OFERECEMOS ── -->
+    <section class="s-bege">
+        <div class="container">
+            <div class="sh-bege">
+                <span class="stag">O serviço</span>
+                <h2>Coffee-break com a cara do CEA</h2>
+                <p class="sh-desc">
+                    Oferecemos coffee-breaks para eventos, aulas, formaturas, reuniões e celebrações dentro e fora da UFMS.
+                    Cada produção é feita por estudantes do curso de Engenharia de Alimentos, unindo sabor, apresentação
+                    e segurança alimentar em cada detalhe.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CARDÁPIO (produtos reais fornecidos pela UNITAL) ── -->
+    <section class="s-bege" style="padding-top: 0;">
+        <div class="container">
+
+            <div class="sh-bege">
+                <span class="stag">Cardápio</span>
+                <h2>Nossos produtos</h2>
+                <p class="sh-desc">Mais de 40 produções artesanais, com ingredientes nativos do Cerrado e do Pantanal. Clique em cada categoria para ver as opções.</p>
+            </div>
+
+            <div class="tag-legenda">
+                <span><i class="tag tag-alerg">Glúten</i> contém o alérgeno</span>
+                <span><i class="tag tag-livre">Sem ovos, glúten e lácteos</i> livre dos 3 principais alérgenos</span>
+                <span><i class="tag tag-vegano">Vegano</i> opção vegana</span>
+            </div>
+
+            <div class="cardapio-acordeao">
+
+                <details class="menu-cat" open>
+                    <summary>Bolos <span class="mc-count">8 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Bolo de chocolate e castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Bolo de laranja e especiaria de guavira</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Bolo de jenipapo</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Bolo de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Bolo vegano de castanha de baru</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Bolo vegano de laranja e especiaria de guavira</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Bolo vegano de jenipapo</span><span class="mc-tags"><span class="tag tag-vegano">Vegano</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Amanteigado de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Cookies e biscoitos <span class="mc-count">5 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Cookies de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Sequilhos de castanha de baru</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Sequilhos de jenipapo</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Cookies de jatobá e chocolate ao leite</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Cookies de jatobá e chocolate branco</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Salgadinhos assados <span class="mc-count">4 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Palitinho de orégano</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Palitinho de alecrim</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Palitinho de salsa</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Palitinho de acuri</span><span class="mc-tags"><span class="tag tag-alerg">Glúten</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Pães <span class="mc-count">12 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Pão de castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de acuri</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de jenipapo</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <!-- ATENÇÃO: no cardápio original da UNITAL, este item "(sem lácteos)" aparece com a mesma observação do item acima ("contém lácteos"). Confirmar com o fornecedor antes de publicar. -->
+                        <li><span class="mc-nome">Pão de castanha de baru (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de acuri (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Pão de pequi (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Pão de bocaiuva (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Pão de jenipapo (sem lácteos)</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span></span></li>
+                        <li><span class="mc-nome">Pão de queijo de pequi</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Pão de queijo de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Patês, geleias e conservas <span class="mc-count">5 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Caponata de berinjela e castanha de baru</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Patê de ricota e castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Geleia de guavira</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Geleia de hibisco</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                        <li><span class="mc-nome">Geleia de tamarindo</span><span class="mc-tags"><span class="tag tag-livre">Sem ovos, glúten e lácteos</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Tortas salgadas <span class="mc-count">2 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Torta de jatobá e legumes</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Torta de jatobá e sardinha</span><span class="mc-tags"><span class="tag tag-alerg">Ovos</span><span class="tag tag-alerg">Glúten</span><span class="tag tag-alerg">Lácteos</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Doces finos <span class="mc-count">2 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Brigadeiro de castanha de baru</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Beijinho de bocaiuva</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                    </ul>
+                </details>
+
+                <details class="menu-cat">
+                    <summary>Gelados e sorvetes <span class="mc-count">6 opções</span></summary>
+                    <ul class="mc-lista">
+                        <li><span class="mc-nome">Frozen de guavira</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Frozen de jenipapo azul</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Sorvete de café</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Sorvete de maracujá</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Sorvete de chocolate</span><span class="mc-tags"><span class="tag tag-alerg">Lácteos</span></span></li>
+                        <li><span class="mc-nome">Sorbet de frutas vermelhas</span><span class="mc-tags"><span class="tag tag-livre">Sem lácteos</span></span></li>
+                    </ul>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DIFERENCIAIS ── -->
+    <section class="s-roxo">
+        <div class="container">
+            <div class="sh-roxo">
+                <span class="stag">Por que escolher o CEA</span>
+                <h2>Nosso diferencial</h2>
+            </div>
+
+            <div class="dif-grid">
+                <div class="dif-card">
+                    <h3>Feito por futuros engenheiros</h3>
+                    <p>Cada produção passa pelo olhar técnico de estudantes de Engenharia de Alimentos, com atenção à qualidade e à segurança alimentar.</p>
+                </div>
+                <div class="dif-card">
+                    <h3>Ingredientes regionais</h3>
+                    <p>Valorizamos frutos nativos do Cerrado e do Pantanal, trazendo sabores únicos e autorais ao seu evento.</p>
+                </div>
+                <div class="dif-card">
+                    <h3>Personalização</h3>
+                    <p>Cardápio e apresentação adaptados ao seu evento, do formato à quantidade de convidados.</p>
+                </div>
+                <div class="dif-card">
+                    <h3>Você apoia a extensão</h3>
+                    <p>Ao contratar, você fortalece um projeto de extensão universitária que forma estudantes na prática.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COMO CONTRATAR ── -->
+    <section class="s-roxo" id="contratar">
+        <div class="container">
+            <div class="sh-roxo">
+                <span class="stag">Como contratar</span>
+                <h2>É simples assim</h2>
+            </div>
+
+            <div class="passos-grid">
+                <div class="passo-card">
+                    <span class="passo-num">1</span>
+                    <h3>Fale com a gente</h3>
+                    <p>Chame no WhatsApp contando a data, o local e o número de convidados do seu evento.</p>
+                </div>
+                <div class="passo-card">
+                    <span class="passo-num">2</span>
+                    <h3>Monte seu cardápio</h3>
+                    <p>Ajudamos você a escolher as opções do cardápio que combinam com o seu evento e o seu orçamento.</p>
+                </div>
+                <div class="passo-card">
+                    <span class="passo-num">3</span>
+                    <h3>Confirme e aproveite</h3>
+                    <p>Alinhamos os detalhes finais e entregamos tudo prontinho no dia do seu evento.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center;">
+                <p class="cta-preco">Os valores variam de acordo com o cardápio escolhido e o número de convidados. Fale com a gente para um orçamento personalizado.</p>
+                <!-- Substitua "5567000000000" pelo número real do WhatsApp do CEA (com DDI 55 + DDD + número, sem espaços ou símbolos) -->
+                <a href="https://wa.me/5567000000000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20pre%C3%A7os%20e%20disponibilidade%20do%20coffee-break%20do%20CEA."
+                   class="btn btn-primary btn-lg btn-whatsapp"
+                   target="_blank" rel="noopener">
+                    Falar no WhatsApp e consultar preços
+                </a>
+                <p class="aviso-placeholder"><!-- Lembrete interno: trocar o número de WhatsApp acima antes de publicar --></p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-modern">
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="../assets/logo.png" alt="Logo CEA" class="footer-logo-icon">
+                    <div>
+                        <span class="logo-cea">CEA</span>
+                        <span class="logo-sub">UFMS</span>
+                    </div>
+                </div>
+
+                <p>
+                    Projeto de Extensão Universitária voltado à aproximação entre
+                    estudantes, ciência, inovação e Engenharia de Alimentos.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <a href="sobre.html">Sobre</a>
+                <a href="conteudos.html">Conteúdos</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="coffee-break.html">Coffee-break</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Projeto CEA</h4>
+                <span>UFMS</span>
+                <span>Campo Grande · MS</span>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Projeto CEA – UFMS</p>
+            <span class="footer-signature">Feito com ❤️ por Juliano Rocha</span>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>
