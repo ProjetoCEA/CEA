@@ -1745,3 +1745,52 @@ section.page-hero::after {
 .mascote-personagem {
     animation: none;
 }
+/* Apresentação do Juca */
+.mascote-cenario {
+    padding-top: 58px;
+    height: 398px;
+    box-sizing: border-box;
+}
+
+.juca-fala {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 90%;
+    margin: 0;
+    padding: 12px 20px;
+    border-radius: 18px;
+    background: var(--bege);
+    color: var(--roxo-escuro);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(30, 10, 40, 0.15);
+    z-index: 3;
+}
+
+/* Pontinha do balão */
+.juca-fala::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: var(--bege);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+@media (max-width: 899px) {
+    .mascote-cenario {
+        height: 298px;
+    }
+
+    .juca-fala {
+        font-size: 0.95rem;
+        padding: 11px 16px;
+    }
+}
