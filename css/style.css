@@ -1390,3 +1390,9 @@ footer {
 .area-card .btn {
     width: fit-content;
 }
+
+/* Abertura mais compacta na página inicial */
+.hero {
+    min-height: auto;
+    padding-block: clamp(40px, 5vw, 64px);
+}
