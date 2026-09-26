@@ -1741,3 +1741,7 @@ section.page-hero::after {
         transform: none;
     }
 }
+/* Mantém o mascote parado */
+.mascote-personagem {
+    animation: none;
+}
