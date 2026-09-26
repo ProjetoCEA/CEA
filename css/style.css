@@ -1522,3 +1522,37 @@ section.page-hero::after {
     font-size: 1rem;
     line-height: 1.7;
 }
+/* Banner de apresentação do cardápio */
+.cardapio-banner {
+    margin: 0 0 32px;
+}
+
+.cardapio-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.cardapio-banner figcaption {
+    margin-top: 8px;
+    padding-inline: 4px;
+    color: var(--roxo-escuro);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .cardapio-banner {
+        margin-bottom: 24px;
+    }
+
+    .cardapio-banner img {
+        border-radius: 10px;
+    }
+
+    .cardapio-banner figcaption {
+        text-align: left;
+    }
+}
