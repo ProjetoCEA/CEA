@@ -121,75 +121,173 @@
             opacity: .8;
         }
 
-        /* ── CARDÁPIO (acordeão por categoria) ── */
-        .cardapio-acordeao {
-            max-width: 760px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
+        /* ── CARDÁPIO EM CARTÕES EXPANSÍVEIS ── */
 
-        .menu-cat {
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
-        }
+.cardapio-acordeao {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        .menu-cat > summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 20px 26px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            color: var(--roxo-escuro);
-            transition: var(--transition);
-        }
-        .menu-cat > summary::-webkit-details-marker { display: none; }
-        .menu-cat > summary::after {
-            content: '＋';
-            margin-left: auto;
-            font-family: var(--font-body);
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: var(--laranja);
-            transition: var(--transition);
-        }
-        .menu-cat[open] > summary::after { content: '－'; }
-        .menu-cat > summary:hover { background: rgba(67,29,80,.03); }
+.cardapio-acordeao .menu-cat {
+    min-width: 0;
+    background: var(--bege);
+    border: 1px solid rgba(67, 29, 80, 0.3);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(67, 29, 80, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-        .mc-count {
-            font-family: var(--font-body);
-            font-size: .78rem;
-            font-weight: 500;
-            color: var(--text-mid);
-        }
+.cardapio-acordeao .menu-cat:hover {
+    border-color: var(--roxo-escuro);
+    box-shadow: 0 6px 18px rgba(67, 29, 80, 0.1);
+}
 
-        .mc-lista {
-            list-style: none;
-            padding: 0 26px 22px;
-        }
-        .mc-lista li {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            padding: 12px 0;
-            border-top: 1px solid rgba(67,29,80,.08);
-        }
-        .mc-nome {
-            font-size: .93rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
+/* Cabeçalho clicável de cada cartão */
+.cardapio-acordeao .menu-cat > summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 34px;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 6px;
+    min-height: 110px;
+    padding: 22px 24px;
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--roxo-escuro);
+    transition: background-color 0.2s, color 0.2s;
+}
 
-        @media (max-width: 480px) {
-            .menu-cat > summary { padding: 16px 18px; font-size: 1.02rem; }
-            .mc-lista { padding: 0 18px 18px; }
-        }
+.cardapio-acordeao .menu-cat > summary::-webkit-details-marker {
+    display: none;
+}
+
+.cardapio-acordeao .menu-cat > summary::marker {
+    content: "";
+}
+
+/* Quantidade abaixo do nome */
+.cardapio-acordeao .mc-count {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--roxo-escuro);
+}
+
+/* Indicador de abrir e fechar */
+.cardapio-acordeao .menu-cat > summary::after {
+    content: "+";
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    border-radius: 50%;
+    background: var(--roxo-escuro);
+    color: var(--bege);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* Categoria selecionada */
+.cardapio-acordeao .menu-cat[open] {
+    border-color: var(--roxo-escuro);
+    background: white;
+}
+
+.cardapio-acordeao .menu-cat[open] > summary {
+    background: var(--roxo-escuro);
+    color: var(--bege);
+}
+
+.cardapio-acordeao .menu-cat[open] .mc-count {
+    color: var(--bege);
+}
+
+.cardapio-acordeao .menu-cat[open] > summary::after {
+    content: "−";
+    background: var(--amarelo);
+    color: var(--roxo-escuro);
+}
+
+/* Destaque para navegação pelo teclado */
+.cardapio-acordeao .menu-cat > summary:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: -5px;
+}
+
+/* Lista de produtos */
+.cardapio-acordeao .mc-lista {
+    list-style: none;
+    margin: 0;
+    padding: 8px 24px 18px;
+}
+
+.cardapio-acordeao .mc-lista li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(67, 29, 80, 0.12);
+}
+
+.cardapio-acordeao .mc-lista li:first-child {
+    border-top: none;
+}
+
+.cardapio-acordeao .mc-nome {
+    color: var(--roxo-escuro);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.cardapio-acordeao .mc-alergeno {
+    color: #62566a;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Uma coluna no celular */
+@media (max-width: 700px) {
+    .cardapio-acordeao {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .cardapio-acordeao .menu-cat > summary {
+        min-height: 94px;
+        padding: 18px 20px;
+        font-size: 1.12rem;
+    }
+
+    .cardapio-acordeao .mc-lista {
+        padding: 6px 20px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cardapio-acordeao .menu-cat,
+    .cardapio-acordeao .menu-cat > summary {
+        transition: none;
+    }
+}
 
         /* ── DIFERENCIAIS ── */
         .dif-grid {
@@ -357,7 +455,7 @@
 </figure>
             <div class="cardapio-acordeao">
 
-                <details class="menu-cat" open>
+               <details class="menu-cat" name="cardapio-cea">
                     <summary>Bolos <span class="mc-count">7 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Bolo de chocolate e castanha de baru</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
@@ -370,7 +468,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+                <details class="menu-cat" name="cardapio-cea">
                     <summary>Cookies e biscoitos <span class="mc-count">6 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Amanteigado de bocaiuva</span><span class="mc-alergeno">Contém glúten</span></li>
@@ -382,7 +480,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+                <details class="menu-cat" name="cardapio-cea">
                     <summary>Salgadinhos assados <span class="mc-count">4 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Palitinho de orégano</span><span class="mc-alergeno">Contém glúten</span></li>
@@ -392,7 +490,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+                <details class="menu-cat" name="cardapio-cea">
                     <summary>Pães <span class="mc-count">12 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Pão de castanha de baru</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
@@ -410,7 +508,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+                <details class="menu-cat" name="cardapio-cea">
                     <summary>Patês, geleias e conservas <span class="mc-count">5 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Caponata de berinjela e castanha de baru</span><span class="mc-alergeno">Sem ovos, glúten e lácteos</span></li>
@@ -421,7 +519,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+                <details class="menu-cat" name="cardapio-cea">
                     <summary>Tortas salgadas <span class="mc-count">2 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Torta de jatobá e legumes</span><span class="mc-alergeno">Contém ovos, glúten e lácteos</span></li>
@@ -429,7 +527,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+               <details class="menu-cat" name="cardapio-cea">
                     <summary>Doces finos <span class="mc-count">2 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Brigadeiro de castanha de baru</span><span class="mc-alergeno">Contém lácteos</span></li>
@@ -437,7 +535,7 @@
                     </ul>
                 </details>
 
-                <details class="menu-cat">
+               <details class="menu-cat" name="cardapio-cea">
                     <summary>Gelados e sorvetes <span class="mc-count">6 opções</span></summary>
                     <ul class="mc-lista">
                         <li><span class="mc-nome">Frozen de guavira</span><span class="mc-alergeno">Contém lácteos</span></li>
