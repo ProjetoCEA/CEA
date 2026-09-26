@@ -1556,3 +1556,188 @@ section.page-hero::after {
         text-align: left;
     }
 }
+/* =========================================
+   MASCOTE — CENÁRIO E LINKS
+   ========================================= */
+
+.hero .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 0;
+    z-index: 2;
+}
+
+.universo-cea {
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+}
+
+/* Área de composição */
+.mascote-cenario {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 340px;
+    isolation: isolate;
+}
+
+/* Forma orgânica atrás do personagem */
+.mascote-fundo {
+    position: absolute;
+    width: 78%;
+    height: 82%;
+    background: rgba(193, 155, 221, 0.22);
+    border: 1px solid rgba(255, 245, 222, 0.18);
+    border-radius: 44% 56% 61% 39% / 48% 41% 59% 52%;
+    transform: rotate(-8deg);
+    z-index: 0;
+}
+
+/* Mascote central */
+.mascote-personagem {
+    position: relative;
+    display: block;
+    width: min(74%, 320px);
+    height: auto;
+    max-height: 310px;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 22px rgba(30, 10, 40, 0.25));
+    animation: flutuar 5s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Elementos da identidade visual */
+.mascote-elemento {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    pointer-events: none;
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.mascote-microscopio {
+    top: 24px;
+    left: 0;
+    transform: rotate(-14deg);
+}
+
+.mascote-frutos {
+    right: 0;
+    bottom: 35px;
+    transform: rotate(12deg);
+}
+
+/* Links abaixo do personagem */
+.mascote-atalhos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.mascote-atalho {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 17px 16px;
+    border: 1px solid rgba(255, 245, 222, 0.3);
+    border-radius: 16px;
+    background: rgba(255, 245, 222, 0.08);
+    color: var(--bege);
+    text-align: left;
+    text-decoration: none;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.mascote-atalho .atalho-tema {
+    color: var(--amarelo);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.mascote-atalho .atalho-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--bege);
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.mascote-atalho:hover {
+    background: rgba(255, 245, 222, 0.15);
+    border-color: var(--amarelo);
+    transform: translateY(-3px);
+}
+
+.mascote-atalho:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 4px;
+}
+
+/* Mantém a abertura com altura ajustada ao conteúdo */
+.hero {
+    min-height: auto;
+    column-gap: 24px;
+    padding-block: clamp(40px, 5vw, 64px);
+}
+
+/* Versão compacta abaixo do texto em telas menores */
+@media (max-width: 899px) {
+    .hero .hero-visual {
+        margin-top: 24px;
+    }
+
+    .universo-cea {
+        max-width: 360px;
+    }
+
+    .mascote-cenario {
+        height: 240px;
+    }
+
+    .mascote-personagem {
+        width: 220px;
+        max-height: 225px;
+    }
+
+    .mascote-elemento {
+        display: none;
+    }
+
+    .mascote-atalhos {
+        margin-top: 8px;
+        gap: 10px;
+    }
+
+    .mascote-atalho {
+        padding: 14px 12px;
+    }
+}
+
+/* Respeita a preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .mascote-personagem {
+        animation: none;
+    }
+
+    .mascote-atalho {
+        transition: none;
+    }
+
+    .mascote-atalho:hover {
+        transform: none;
+    }
+}
