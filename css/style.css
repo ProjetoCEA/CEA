@@ -526,7 +526,7 @@ footer {
    ========================================= */
 .page-hero {
     background: linear-gradient(135deg, var(--roxo-escuro), #6b2d80);
-    padding: 100px 20px 70px;
+    padding: clamp(36px, 5vw, 56px) 20px;
     text-align: center;
 }
 .page-hero h1 {
