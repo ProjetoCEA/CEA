@@ -1396,3 +1396,99 @@ footer {
     min-height: auto;
     padding-block: clamp(40px, 5vw, 64px);
 }
+
+/* =========================================
+   IDENTIDADE VISUAL — LOGO DO MENU
+   ========================================= */
+
+.logo.logo-idv {
+    position: relative;
+    display: block;
+    width: 180px;
+    height: 36px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.logo-idv .logo-idv-img {
+    position: absolute;
+    width: 236px;
+    max-width: none;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================
+   IDENTIDADE VISUAL — ABERTURAS INTERNAS
+   ========================================= */
+
+section.page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(36px, 5vw, 56px) 20px;
+}
+
+/* Mantém o texto à frente das ilustrações */
+section.page-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ilustrações decorativas nas laterais */
+section.page-hero::before,
+section.page-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    top: 50%;
+    width: clamp(130px, 17vw, 220px);
+    height: clamp(130px, 17vw, 220px);
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Microscópio à esquerda */
+section.page-hero::before {
+    left: clamp(12px, 3vw, 48px);
+    background-image:
+        url("../assets/idv/microscopio-creme.png");
+}
+
+/* Frutos à direita */
+section.page-hero::after {
+    right: clamp(12px, 3vw, 48px);
+    background-image:
+        url("../assets/idv/frutos-branco.png");
+}
+
+
+/* =========================================
+   AJUSTES PARA TELAS MENORES
+   ========================================= */
+
+@media (max-width: 900px) {
+    section.page-hero::before,
+    section.page-hero::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo.logo-idv {
+        width: 156px;
+        height: 32px;
+    }
+
+    .logo-idv .logo-idv-img {
+        width: 204px;
+    }
+}
